@@ -10,11 +10,10 @@ var ORDENEVALIDOS =[1,5,9,4,8,3,7,2,6,3,5,7,6,8,1,9,2,4];
 $( function() {
 	$("#dialogoOpinion").hide();
 	$( ".menu_izq" ).accordion({
-      collapsible: true,
-			active:false
-    });
+      		collapsible: true,
+		active:false
+	});
 	$("#divAnimacionCramer").hide();
-
 
 	$(".menu_izq").on("click",function(){
 		var menuActivo = $( ".menu_izq" ).accordion( "option", "active" );
@@ -31,7 +30,6 @@ $( function() {
 					$("#flecha2").removeClass("rotar");
 					$("#flecha1").addClass("deshacerRotar");
 					$("#flecha2").addClass("deshacerRotar");
-
 		}
 	});
 
@@ -39,12 +37,12 @@ $( function() {
 
 //Abre una ventana emergente con el manual
 function manual(){
-	ventanaManual=window.open('manual.html','','width=1000,height=500,top=100000000,left=100000000');
+	ventanaManual = window.open('manual.html','','width=1000,height=500,top=100000000,left=100000000');
 }
 
 //Abre una ventana emergente con el ejercicio sobre suma de matrices
 function ejSumaMatrices(){
-	ventanaSumaMatrices=window.open('ejercicios/ejSumaMatrices.html','','width=900,height=500')
+	ventanaSumaMatrices = window.open('ejercicios/ejSumaMatrices.html','','width=900,height=500')
 }
 
 //Funcion que rellena las matrices con numeros aleatorios y vacia automaticamente las casillas en los que se introducen los datos
@@ -65,8 +63,6 @@ function rellenarMatrices(){
 	for (var i = 0; i < c.length; i++) {
 		c[i].value="";
 	}
-
-
 }
 
 //Comprueba la suma
@@ -136,7 +132,6 @@ function comprobarNumeroMatriz(){
 
 	c1=document.getElementsByClassName("c");
 
-
 	//Comprueba, como con la suma pero con la multiplicacion
 	for (var i = 0; i <= 5; i++) {
 		//En este caso solo nos interesa a1[0], ya que es un solo numero por la matriz
@@ -155,7 +150,11 @@ function comprobarNumeroMatriz(){
 }
 //Abre ventana de multiplicacion de matrices
 function ejMatrices(){
-	ventanaMatriz=window.open('ejercicios/ejMatrices.html','','width=900,height=500');
+	ventanaMatriz=window.open(
+		'ejercicios/ejMatrices.html',
+		'',
+		'width=900,height=500'
+	);
 }
 
 //Funcion que multiplica dos matrices y devuelve la matriz solucion, usada en la calculadora y en el ejercicio
@@ -188,7 +187,6 @@ function multiplicarMatrices(a1,b1){
 			else{
 				vectorSolucion.push(sol);
 				sol=0;
-
 				if(j>=11){
 					j-=11;
 				}
@@ -199,14 +197,13 @@ function multiplicarMatrices(a1,b1){
 				cont=0;
 				num-=3;
 			}
-
 		}
 		num+=3;
 	}
 	//devuelve el vector solucion, para comprobar
 	return vectorSolucion;
-
 }
+
 //Comprueba la multiplicacion de matrices
 function comprobarMatrices(){
 	//Recoge las matrices y la repuesta
@@ -241,13 +238,13 @@ function comprobarMatrices(){
 
 }
 function rellenarDeterminante2(){
+	
 	a=document.getElementsByClassName("a");
-
+	
 	//Rellena la matriz A
 	for (var i = 0; i < a.length; i++) {
 		a[i].innerHTML=Math.trunc((Math.random()*10));
 	}
-
 }
 //Abre la ventana con el ejercicio determinante orden 2
 function determinanteDos(){
@@ -357,9 +354,7 @@ function mostrarSolSarrus(){
 						clearInterval(intervalo);
 						$("#rectangulo").fadeToggle(1500);
 					break;
-
 			}
-
 		}
 		cont++;
 	},4000);
@@ -404,7 +399,6 @@ function ordenSarrus(){
 	seleccionados.innerHTML="Posiciones Seleccionadas :";
 	var correccion=document.getElementById("correccion");
 	correccion.innerHTML="";
-
 }
 
 //Ejecutado al hacer click en algun elemento del mapa de imagen
@@ -423,12 +417,9 @@ function clickSarrus(item,nombre){
 
 		if (String(ORDENARRAY)==String(ORDENEVALIDOS)) {
 			correccion.innerHTML="¡CORRECTO!";
-		}
-		else{
+		} else {
 			correccion.innerHTML="Vuelve a probar";
-
 		}
-
 	}
 }
 
@@ -458,15 +449,13 @@ function comprobarSistema(){
 	x3=document.getElementById("c3");
 	if (detA==0) {
 		alert('Para resolver el sistema de ecuaciones el determinante de A debe ser distinto de 0');
-	}
-	else{
+	} else {
 		//comprobamos si son correctos con la regla de cramer
 		if(x1.value==soluciones[0]){//Multiplicamos por cien, redondeamos y dividimos por cien para aproximarlo a los decimales
 			//Aplica estilos si es correcto
 			x1.style.backgroundColor="green";
 			x1.style.color="white";
-		}
-		else{
+		} else {
 			//Aplica estilos si es falso
 			x1.style.backgroundColor="red";
 			x1.style.color="white";
@@ -475,8 +464,7 @@ function comprobarSistema(){
 			//Aplica estilos si es correcto
 			x2.style.backgroundColor="green";
 			x2.style.color="white";
-		}
-		else{
+		} else {
 			//Aplica estilos si es falso
 			x2.style.backgroundColor="red";
 			x2.style.color="white";
@@ -486,15 +474,12 @@ function comprobarSistema(){
 			//Aplica estilos si es correcto
 			x3.style.backgroundColor="green";
 			x3.style.color="white";
-		}
-		else{
+		} else {
 			//Aplica estilos si es falso
 			x3.style.backgroundColor="red";
 			x3.style.color="white";
 		}
 	}
-
-
 }
 
 //Multipllica la matriz b por un numero a, usada en la calculadora
@@ -534,7 +519,6 @@ function calcDet2(a){
 //Calculamos el determinante de orden 3, como el ejercicio
 
 function calcDet3(a){
-
 	positivos=(Number(a[0])*Number(a[4])*Number(a[8]));
 	positivos+=(Number(a[1])*Number(a[5])*Number(a[6]));
 	positivos+=(Number(a[2])*Number(a[3])*Number(a[7]));
@@ -544,9 +528,7 @@ function calcDet3(a){
 	negativos-=(Number(a[0])*Number(a[5])*Number(a[7]));
 	solucion=Number(positivos)+Number(negativos);
 	return solucion;
-
 }
-
 
 function mostrarDeterminante3(){
 	a5=document.getElementsByClassName("a5");
@@ -557,6 +539,7 @@ function mostrarDeterminante3(){
 	}
 	c5[0].innerHTML=calcDet3(b);
 }
+
 function mostrarSistemaCramer(){
 	a=document.getElementsByClassName("a6");
 	b=document.getElementsByClassName("b6");
@@ -572,14 +555,11 @@ function mostrarSistemaCramer(){
 	//Calculamos el determinante del sistema
 	if (soluciones[0]==0) {
 		if (soluciones[1]!=0 && soluciones[2]!=0 && soluciones[3]!=0) {
-
-		}
-		else {
+		} else {
 			alert('Ha introducido un sistema determinado incompatible, intente resolverlo por el metodo de Gauss');
 		}
 
-	}
-	else{
+	} else {
 		x1=document.getElementById("c1");
 		x2=document.getElementById("c2");
 		x3=document.getElementById("c3");
@@ -587,8 +567,8 @@ function mostrarSistemaCramer(){
 		x2.innerHTML=soluciones[2]/soluciones[0];
 		x3.innerHTML=soluciones[3]/soluciones[0];
 	}
-
 }
+
 function calcSistema(a,b){
 	vDetA=[];
 	for (var i = 0; i < a.length; i++) {
@@ -609,7 +589,6 @@ function calcSistema(a,b){
 			case 6:vDet1[i]=b[2];
 				break;
 			default:vDet1[i]=a[i];
-
 		}
 	}
 
@@ -618,15 +597,17 @@ function calcSistema(a,b){
 	vDet2=[];
 	for (var i = 0; i < a.length; i++) {
 		switch (i) {
-			case 1:vDet2[i]=b[0];
-				break;
-			case 4:vDet2[i]=b[1];
-				break;
-
-			case 7:vDet2[i]=b[2];
-				break;
-			default:vDet2[i]=a[i];
-
+			case 1:
+				vDet2[i]=b[0];
+			break;
+			case 4:
+				vDet2[i]=b[1];
+			break;
+			case 7:
+				vDet2[i]=b[2];
+			break;
+			default:
+				vDet2[i]=a[i];
 		}
 	}
 
@@ -637,17 +618,20 @@ function calcSistema(a,b){
 	vDet3=[];
 	for (var i = 0; i < a.length; i++) {
 		switch (i) {
-			case 2:vDet3[i]=b[0];
-				break;
-			case 5:vDet3[i]=b[1];
-				break;
-
-			case 8:vDet3[i]=b[2];
-				break;
-			default:vDet3[i]=a[i];
-
+			case 2:
+				vDet3[i]=b[0];
+			break;
+			case 5:
+				vDet3[i]=b[1];
+			break;
+			case 8:
+				vDet3[i]=b[2];
+			break;
+			default:
+				vDet3[i]=a[i];
 		}
 	}
+	
 	det3=calcDet3(vDet3);
 	sol1=Number(det1)/Number(detA);
 	sol2=Number(det2)/Number(detA);
@@ -680,6 +664,7 @@ function mostrarSistemaGauss(){
 	x2.innerHTML=soluciones[1];
 	x3.innerHTML=soluciones[2];
 }
+
 //Resuelve el sistema por el metodo de gaus
 function resolverGauss(a,b){
 	incompatible=true;
@@ -755,8 +740,7 @@ function resolverGauss(a,b){
 				sol2="u";
 				sol1="("+String(b[0])+"-("+String(a[2])+"*"+String(sol3)+")-("+String(a[1])+"*"+String(sol2)+"))";
 				sol1=sol1+"/"+String(a[0]);
-			}
-			else{
+			} else {
 				for (var i = 0; i < 6; i++) {
 					a[i]=Math.round(a[i]*100)/100;
 				}
@@ -767,8 +751,7 @@ function resolverGauss(a,b){
 			}
 			soluciones=[sol1,sol2,sol3];
 
-		}
-		else {
+		} else {
 			sol3= b[2]/a[8];
 
 			sol2= b[1]-( a[5]* sol3);
@@ -784,28 +767,22 @@ function resolverGauss(a,b){
 				if(!isFinite(sol1) || !isFinite(sol2) || !isFinite(sol3) ){
 					alert("El sistema es incompatible, no tiene solucion");
 					soluciones=["","",""];
-				}
-				else {
+				} else {
 					soluciones=[sol1,sol2,sol3];
 				}
-			}
-			else {
+			} else {
 				alert("No se puede resolver por el metodo de Gauss, intentelo por Cramer");
 				soluciones=["","",""];
 			}
 		}
-
 		return soluciones;
-
-		}
-	else{
+		} else {
 		soluciones=["","",""];
 		alert("El sistema es incompatible");
 		return soluciones;
-
 	}
-
 }
+
 function generarOperacion(operacion,idDiv){
 	var id=document.getElementById(idDiv);
 	var divBoton=document.getElementById("boton");
@@ -824,9 +801,7 @@ function generarOperacion(operacion,idDiv){
 	boton.setAttribute("value","Calcular");
 
 	switch (operacion) {
-
 		case "sumaMatrices":
-
 				generarTabla(3,3,idDiv,"parentesis","tablaA","entrada");
 				id.appendChild(document.createTextNode("+"));
 				generarTabla(3,3,idDiv,"parentesis","tablaB","entrada");
@@ -847,7 +822,6 @@ function generarOperacion(operacion,idDiv){
 						generarTabla(3,3,idDiv,"parentesis","solA","salida",soluciones);
 					}
 				);
-
 				divBoton.appendChild(boton);
 			break;
 		case "restaMatrices":
@@ -867,7 +841,6 @@ function generarOperacion(operacion,idDiv){
 							b1[i]=b[i].value;
 						}
 						soluciones=restarMatrices(a1,b1);
-
 						generarTabla(3,3,idDiv,"parentesis","solA","salida",soluciones);
 					}
 				);
@@ -917,7 +890,6 @@ function generarOperacion(operacion,idDiv){
 					}
 				);
 				divBoton.appendChild(boton);
-
 			break;
 		case "determinante2":
 				generarTabla(2,2,idDiv,"linea","tablaA","entrada");
@@ -933,7 +905,6 @@ function generarOperacion(operacion,idDiv){
 						}
 						soluciones=document.createTextNode(calcDet2(a1));
 						id.appendChild(soluciones);
-
 					}
 				);
 				divBoton.appendChild(boton);
@@ -991,8 +962,7 @@ function generarOperacion(operacion,idDiv){
 						}
 						if(metodoCramer.checked){
 							soluciones=calcSistema(a1,b1);
-						}
-						else {
+						} else {
 							soluciones=resolverGauss(a1,b1);
 						}
 						generarTabla(3,1,idDiv,"parentesis","solA","salida",soluciones);
@@ -1006,8 +976,7 @@ function generarTabla(filas,columnas,idDiv,parentesis,clase,opcionIO,elementoMos
 	var id=document.getElementById(idDiv);
 	if(opcionIO=="entrada"){
 		var elementoTabla=document.createElement("input");
-	}
-	else{
+	} else {
 		var elementoTabla=document.createTextNode("");
 	}
 	var tabla=document.createElement("table");
@@ -1035,8 +1004,7 @@ function generarTabla(filas,columnas,idDiv,parentesis,clase,opcionIO,elementoMos
 			elementoTabla.style.textAlign="center";
 			elementoTabla.style.borderRadius="10px";
 			elementoTabla.style.width="50px";
-		}
-		else{
+		} else {
 			var texto=document.createTextNode(elementoMostrar[i]);
 		 	elementoTabla=document.createElement("p");
 			elementoTabla.style.width="150px";
@@ -1048,8 +1016,7 @@ function generarTabla(filas,columnas,idDiv,parentesis,clase,opcionIO,elementoMos
 		if(parentesis=="sistema"){
 			if ((i%filas)+1==3) {
 				var valorX=document.createTextNode(String("X")+String((i%filas)+1)+"=");
-			}
-			else {
+			} else {
 				var valorX=document.createTextNode(String("X")+String((i%filas)+1)+"+");
 			}
 			td.appendChild(valorX);
@@ -1110,6 +1077,7 @@ function anadirGrafico(){
 		parrafo.appendChild(inputX2);
 		parrafo.appendChild(parrafoX2);
 	}
+	
 	parrafo.appendChild(inputXRecta);
 	parrafo.appendChild(parrafoX);
 	parrafo.appendChild(inputNRecta);
@@ -1141,10 +1109,8 @@ function anadirGrafico(){
 			  x1: coord1X, y1: coord1Y,
 			  x2: coord2X, y2: coord2Y
 			});
-		}
-
-		//NO ESTA ACABADO, NO FUNCIONA CORRECTAMENTE
-		else {
+		} else {
+			//NO ESTA ACABADO, NO FUNCIONA CORRECTAMENTE
 			var ecuacion=String(inputX2.value)+String(parrafoX2.nodeValue)+String(inputXRecta.value)+String(parrafoX.nodeValue)+String(inputNRecta.value);
 			var verticeParabola=eval("-"+String(inputXRecta.value)+"/(2*"+String(inputX2.value)+")");
 			console.log(verticeParabola);
@@ -1175,6 +1141,7 @@ function anadirGrafico(){
 		eliminarElemento(this);
 	});
 }
+
 function eliminarGrafico(){
 	$('canvas').clearCanvas();
 	$('.menuEcuaciones').remove();
@@ -1191,6 +1158,7 @@ function eliminarElemento(parrafo){
 	//A partir del abuelo eliminamos el parrafo, es decir, el padre
 	abuelo.removeChild(padre);
 }
+
 function comenzarAnimacionCramer(){
 	$("#botonAnimacion").attr("onclick","");
 	$("#cramerY").css("marginLeft","20%");
@@ -1227,6 +1195,7 @@ function comenzarAnimacionCramer(){
 		solCramerOrdenCol("Sol",posX,posY);
 	},8000);
 }
+
 function solCramerOrdenCol(col,posX,posY) {
 	var columna=$("#col"+col);
 	var clon=columna.clone();
@@ -1236,10 +1205,12 @@ function solCramerOrdenCol(col,posX,posY) {
 		marginTop:posY
 	},2000);
 }
+
 function opinion(){
 	$("#dialogoOpinion").dialog();
 
 }
+
 function comprobarDatos(){
 	validado=true;
 	nombre=$("#nombre").val();
