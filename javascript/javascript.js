@@ -6,7 +6,6 @@ var ORDENARRAY = [];
 //Orden correcto para Sarrus
 var ORDENEVALIDOS =[1,5,9,4,8,3,7,2,6,3,5,7,6,8,1,9,2,4];
 
-
 $( function() {
 	$("#dialogoOpinion").hide();
 	$( ".menu_izq" ).accordion({
